@@ -1,0 +1,7 @@
+{
+  "name": "hyper-laser-midnight",
+  "version": "1.0.0",
+  "description": "A beautiful 80s neon theme for Hyper",
+  "main": "index.js",
+  "license": "MIT"
+}
