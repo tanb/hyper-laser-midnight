@@ -20,7 +20,7 @@ module.exports.decorateHyper = (Hyper, {React}) => {
     constructor(props) {
       super(props);
       this.animate = this.props.hyperLaserMidnight.animate;
-      this.speed = 0.02; // degree / millisec
+      this.speed = 0.05; // degree / millisec
       this.gradientInitialDegrees = 90;
       this.gradientDegrees = 0;
       this.gradientColors = this.props.hyperLaserMidnight.gradientColors;
@@ -39,12 +39,16 @@ module.exports.decorateHyper = (Hyper, {React}) => {
       }
     }
     drawFrame () {
-      console.log(this.animate);
+      const previousDegree = this.gradientDegrees;
       if (this.animate) {
         // Set dynamic gradientDegrees
         const currentTime = new Date().getTime();
         const progress = currentTime - this.startTime;
         this.gradientDegrees = (this.speed * progress + this.gradientInitialDegrees) % 360;
+        if (Math.floor(previousDegree) === Math.floor(this.gradientDegrees)) {
+          window.requestAnimationFrame(this.drawFrame);
+          return;
+        }
       } else {
         this.gradientDegrees = this.gradientInitialDegrees;
       }
@@ -97,7 +101,7 @@ module.exports.decorateHyper = (Hyper, {React}) => {
       if (this.animate) {
         window.setTimeout((function() {
           window.requestAnimationFrame(this.drawFrame);
-        }).bind(this), 300);
+        }).bind(this), 200);
       }
     }
     onDecorated (hyper) {
