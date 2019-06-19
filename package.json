@@ -3,5 +3,19 @@
   "version": "1.0.0",
   "description": "A beautiful 80s neon theme for Hyper",
   "main": "index.js",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanb/hyper-laser-midnight.git"
+  },
+  "keywords": [
+    "hyper",
+    "hyper.app",
+    "hyper-plugin"
+  ],
+  "author": "tanb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanb/hyper-laser-midnight/issues"
+  },
+  "homepage": "https://github.com/tanb/hyper-laser-midnight#readme"
 }
